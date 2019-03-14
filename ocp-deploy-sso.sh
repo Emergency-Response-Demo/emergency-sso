@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-oc project naps-emergency-response
+proj_name=naps-emergency-response
+oc project ${proj_name}
 
 # build custom sso instance with custom theme
 tag=1.0
@@ -23,7 +23,8 @@ oc new-app -f ${template}.json \
  -p SSO_ADMIN_USERNAME="admin" \
  -p SSO_ADMIN_PASSWORD="Redhat1!" \
  -p SSO_REALM="emergency-realm" \
- -p IMAGE_STREAM_NAMESPACE=${proj_name}
+ -p IMAGE_STREAM_NAMESPACE=${proj_name} \
+ -p POSTGRESQL_IMAGE_STREAM_TAG=1-32
  
  sleep 1
  route_name=$(oc get routes -l app=${template} | { read line1 ; read line2 ; echo "$line2" ; } | awk '{print $2;}')
