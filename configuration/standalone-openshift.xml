@@ -121,9 +121,7 @@
         <subsystem xmlns="urn:jboss:domain:core-management:1.0"/>
         <subsystem xmlns="urn:jboss:domain:datasources:5.0">
             <datasources>
-                <xa-datasource jndi-name="java:jboss/datasources/KeycloakDS" pool-name="sso_postgresql-DB" enabled="true" use-java-context="true"> <xa-datasource-property name="DatabaseName">root</xa-datasource-property> <xa-datasource-property name="PortNumber">5432</xa-datasource-property> <xa-datasource-property name="ServerName">172.30.92.224</xa-datasource-property> <driver>postgresql</driver> <security> <user-name>userCvQ</user-name> <password>yGYFrhqLt1ERH6VbSrvjR6SkFK8G0Khg</password> </security> <validation> <validate-on-match>true</validate-on-match> <background-validation>false</background-validation> <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker"></valid-connection-checker> <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter"></exception-sorter> </validation> </xa-datasource>
-<datasource jta="false" jndi-name="java:jboss/datasources/KeycloakDSObjectStore" pool-name="sso_postgresqlObjectStorePool" enabled="true"> <connection-url>jdbc:postgresql://172.30.92.224:5432/root</connection-url> <driver>postgresql</driver> <security> <user-name>userCvQ</user-name> <password>yGYFrhqLt1ERH6VbSrvjR6SkFK8G0Khg</password> </security> </datasource>
-<!-- ##DATASOURCES## -->
+                <!-- ##DATASOURCES## -->
                 <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true">
                     <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
                     <driver>h2</driver>
