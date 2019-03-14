@@ -504,7 +504,7 @@
                             "from": {
                                 "kind": "ImageStreamTag",
                                 "namespace": "${IMAGE_STREAM_NAMESPACE}",
-                                "name": "postgresql:${POSTGRESQL_IMAGE_STREAM_TAG}"
+                                "name": "postgresql-96-rhel7:${POSTGRESQL_IMAGE_STREAM_TAG}"
                             }
                         }
                     },
