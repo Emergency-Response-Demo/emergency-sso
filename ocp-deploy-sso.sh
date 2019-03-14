@@ -7,7 +7,6 @@ tag=1.0
 image_name=redhat-sso73-openshift-theme
 
 oc new-build redhat-sso73-openshift:${tag}~https://github.com/NAPS-emergency-response-project/emergency-sso \
-  --context-dir=sso \
   --name=${image_name} \
   --to=${image_name}:${tag}
 
