@@ -14,3 +14,7 @@ do
   oc replace --force -f \
   https://raw.githubusercontent.com/jboss-container-images/redhat-sso-7-openshift-image/sso73-dev/templates/${resource}
 done
+
+# hack for old registry
+
+oc get is redhat-sso73-openshift -o json | sed "s/registry.redhat.io/registry.access.redhat.com/g" | oc replace --force -f -
