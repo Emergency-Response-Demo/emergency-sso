@@ -1,7 +1,30 @@
 #!/usr/bin/env bash
    
 /usr/local/s2i/assemble
-  
+
 echo "****** Copying themes ******"
-   
-cp -Rv /tmp/src/themes/* /opt/eap/themes/                                     
+cp -Rv /tmp/src/themes/* /opt/eap/themes/
+
+if [[ ${DEVELOPMENT} = "true" ]]; then
+  config=${JBOSS_HOME}/standalone/configuration/standalone-openshift.xml
+  
+  search="<staticMaxAge>.*</staticMaxAge>"
+  replace="<staticMaxAge>-1</staticMaxAge>"
+  
+  echo "****** Changing \"${search}\" to \"${replace}\" in ${config} ******"
+  sed -i "s@${search}@${replace}@g" ${config}
+  
+  search="<cacheThemes>.*</cacheThemes>"
+  replace="<cacheThemes>false</cacheThemes>"
+  
+  echo "****** Changing \"${search}\" to \"${replace}\" in ${config} ******"
+  sed -i "s@${search}@${replace}@g" ${config}
+  
+  search="<cacheTemplates>.*</cacheTemplates>"
+  replace="<cacheTemplates>false</cacheTemplates>"
+  
+  echo "****** Changing \"${search}\" to \"${replace}\" in ${config} ******"
+  sed -i "s@${search}@${replace}@g" ${config}
+else
+  echo "****** Template development settings NOT set ******"
+fi                                  
