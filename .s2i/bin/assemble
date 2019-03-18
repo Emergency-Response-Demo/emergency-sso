@@ -3,7 +3,7 @@
 /usr/local/s2i/assemble
 
 echo "****** Copying themes ******"
-cp -Rv /tmp/src/themes/* /opt/eap/themes/
+cp -Rv /tmp/src/themes/* ${JBOSS_HOME}/themes/
 
 if [[ ${DEVELOPMENT} = "true" ]]; then
   config=${JBOSS_HOME}/standalone/configuration/standalone-openshift.xml
@@ -25,6 +25,8 @@ if [[ ${DEVELOPMENT} = "true" ]]; then
   
   echo "****** Changing \"${search}\" to \"${replace}\" in ${config} ******"
   sed -i "s@${search}@${replace}@g" ${config}
+
+  chmod g+w -R ${JBOSS_HOME}/themes/coreui
 else
   echo "****** Template development settings NOT set ******"
 fi                                  
