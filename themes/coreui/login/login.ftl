@@ -13,9 +13,9 @@
                     <span class="input-group-text"> <i class="icon-user"></i> </span>
                   </div>
                     <#if usernameEditDisabled??>
-                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled placeholder="Username"/>
+                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled placeholder="Username" title="Username" />
                     <#else>
-                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="off" placeholder="Username"/>
+                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="off" placeholder="Username" title="Username" />
                     </#if>
                 </div>
 
@@ -23,7 +23,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="icon-lock"></i> </span>
                   </div>
-                  <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" placeholder="Password"/>
+                  <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" placeholder="Password" title="Password"/>
                 </div>
 
                 <div class="row">

@@ -4,4 +4,4 @@
 
 pod_name=$(oc get pods --selector app=sso73-x509-postgresql-persistent | { read line1 ; read line2 ; echo "$line2" ; } | awk '{print $1;}')
 
-oc rsync themes/coreui ${pod_name}:/opt/eap/themes/
+oc rsync themes/coreui ${pod_name}:/opt/eap/themes/ --watch
