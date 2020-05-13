@@ -1,0 +1,6 @@
+{
+  "themes": [{
+    "name" : "coreui",
+    "types": [ "login", "account" ]
+  }]
+}
